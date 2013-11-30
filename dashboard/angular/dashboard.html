@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Angular Dash</title>
+        <script type="text/javascript" src="angular.min.js"></script>
+        <script type="text/javascript" src="main.js"></script>
+    </head>
+    <body>
+        <h1>The Dashboard</h1>
+        <div ng-app="dashboard">
+            <div ng-controller="widgetCtrl">
+                <div ng-repeat="widget in widgets.data">
+                    <h3>{{ widget.title }}</h3>
+                    <p>{{ widget.type }}</p>
+                    <p>{{ widget.content }}</p>
+                    <button ng-click="addOne($index)">Add</button>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
