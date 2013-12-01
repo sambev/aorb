@@ -31,11 +31,16 @@ App.Views.WidgetView = Backbone.View.extend({
     },
 
     events: {
-        'click button[class=add]': 'addContent',
+        'click .addOne': 'addContent',
+        'click .rmOne': 'rmContent',
     }, 
 
     addContent: function() {
         this.model.set('content', this.model.get('content') + 1);
+    },
+
+    rmContent: function() {
+        this.model.set('content', this.model.get('content') - 1);
     }
 });
 

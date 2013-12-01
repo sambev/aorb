@@ -2,20 +2,49 @@
 <html>
     <head>
         <title>Angular Dash</title>
-        <script type="text/javascript" src="angular.min.js"></script>
-        <script type="text/javascript" src="main.js"></script>
+        <link rel="stylesheet" type="text/css" href="../../libs/css/foundation.min.css">
+        <style type="text/css">
+            .bar {
+                background-color: #008cba;
+                text-align: right;
+                padding: 3px;
+                margin: 1px;
+                color: white;
+            }
+        </style>
     </head>
     <body>
-        <h1>The Dashboard</h1>
         <div ng-app="dashboard">
-            <div ng-controller="widgetCtrl">
-                <div ng-repeat="widget in widgets.data">
-                    <h3>{{ widget.title }}</h3>
-                    <p>{{ widget.type }}</p>
-                    <p>{{ widget.content }}</p>
-                    <button ng-click="addOne($index)">Add</button>
+            <div class="row">
+                <h1>The Dashboard</h1>
+            </div>
+            <div class="row">
+                <div ng-controller="widgetCtrl">
+                    <div ng-repeat="widget in widgets.data">
+                        <div class="small-6 columns">
+                            <h3>{{ widget.title }}</h3>
+                            <p>{{ widget.type }}</p>
+                            <p>{{ widget.content }}</p>
+                            <button ng-click="addOne($index)">Add</button>
+                            <button ng-click="rmOne($index)">Remove</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div ng-controller="widgetCtrl">
+                    <div class="small-12 columns">
+                        <h3>Graph</h3>
+                        <div ng-repeat="widget in widgets.data">
+                            <div class="bar" style="width:{{ widget.content }}0px">
+                                {{ widget.title }} : {{ widget.content }}
+                            </div>
+                        </div> 
+                    </div>
                 </div>
             </div>
         </div>
+        <script type="text/javascript" src="../../libs/js/angular.min.js"></script>
+        <script type="text/javascript" src="dashboard.js"></script>
     </body>
 </html>

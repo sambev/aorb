@@ -2,23 +2,42 @@
 <html>
     <head>
         <title>Backbone example</title>
+        <link rel="stylesheet" type="text/css" href="../../libs/css/bootstrap.min.css">
     </head>
     <body>
-
-        <h1>The Dashboard</h1>
-        <div id="dashboard_container">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 col-md-12 col-lg-12">
+                    <h1>The Dashboard</h1>
+                </div>
+            </div>
+            <div class="row">
+                <div id="dashboard_container"></div>
+            </div>
         </div>
 
         <script type="text/template" id="widget">
-            <h3><%= title %></h3>
-            <p><%= type %></p>
-            <p><%= content %></p>
-            <button class="add">Add</button>
+            <div class="col-xs-6 col-sm-6 col-lg-6">
+                <h3><%= title %></h3>
+                <p><%= type %></p>
+                <p><%= content %></p>
+                <button class="addOne btn btn-primary">Add</button>
+                <button class="rmOne btn btn-danger">Remove</button>
+            </div>
         </script>
 
-        <script type="text/javascript" src="jquery-1.10.2.min.js"></script>
-        <script type="text/javascript" src="underscore-min.js"></script>
-        <script type="text/javascript" src="backbone-min.js"></script>
+        <script type="text/template" id="graph">
+            <div class="col-xs-12 col-sm-12 col-lg-12">
+                <h3>Graphs</h3>
+                <div id="mainchart">
+                    <div style="width:<%= content %>px"></div>
+                </div>
+            </div>
+        </script>
+
+        <script type="text/javascript" src="../../libs/js/jquery-1.10.2.min.js"></script>
+        <script type="text/javascript" src="../../libs/js/underscore-min.js"></script>
+        <script type="text/javascript" src="../../libs/js/backbone-min.js"></script>
         <script type="text/javascript" src="dashboard.js"></script>
         
     </body>

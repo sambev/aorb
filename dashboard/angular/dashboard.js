@@ -21,5 +21,8 @@ function widgetCtrl($scope, Widgets) {
     $scope.widgets = Widgets;
     $scope.addOne = function(index) {
         Widgets.data[index].content++;
-    }
+    };
+    $scope.rmOne = function(index) {
+        Widgets.data[index].content--;
+    };
 }
