@@ -22,11 +22,7 @@
                 <div ng-controller="widgetCtrl">
                     <div ng-repeat="widget in widgets.data">
                         <div class="small-6 columns">
-                            <h3>{{ widget.title }}</h3>
-                            <p>{{ widget.type }}</p>
-                            <p>{{ widget.content }}</p>
-                            <button ng-click="addOne($index)">Add</button>
-                            <button ng-click="rmOne($index)">Remove</button>
+                            <widget></widget>
                         </div>
                     </div>
                 </div>
@@ -36,9 +32,7 @@
                     <div class="small-12 columns">
                         <h3>Graph</h3>
                         <div ng-repeat="widget in widgets.data">
-                            <div class="bar" style="width:{{ widget.content }}0px">
-                                {{ widget.title }} : {{ widget.content }}
-                            </div>
+                            <widgetchart></widgetchart>
                         </div> 
                     </div>
                 </div>
