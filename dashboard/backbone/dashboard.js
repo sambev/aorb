@@ -3,9 +3,6 @@ var App = {
     Views: {},
 }
 
-/*
-
- */
 App.Models.DashboardModel = Backbone.Model.extend({
     defaults: {
         title: 'Widget',
@@ -60,22 +57,22 @@ App.Views.ChartView = Backbone.View.extend({
 
 
 $(function() {
-    App.WidgetOne = new App.Models.DashboardModel({
+    WidgetOne = new App.Models.DashboardModel({
         id: 1,
         title: 'Widget One',
         type: 'overview',
         content: 37
     });
 
-    App.WidgetTwo = new App.Models.DashboardModel({
+    WidgetTwo = new App.Models.DashboardModel({
         id: 2,
         title: 'Widget Two',
         type: 'overview',
         content: 58
     });
 
-    App.ViewOne = new App.Views.WidgetView({ model:App.WidgetOne });
-    App.ViewTwo = new App.Views.WidgetView({ model:App.WidgetTwo });
-    App.BarOne = new App.Views.ChartView({ model:App.WidgetOne });
-    App.BarTwo = new App.Views.ChartView({ model:App.WidgetTwo });
+    ViewOne = new App.Views.WidgetView({ model:WidgetOne });
+    ViewTwo = new App.Views.WidgetView({ model:WidgetTwo });
+    BarOne = new App.Views.ChartView({ model:WidgetOne });
+    BarTwo = new App.Views.ChartView({ model:WidgetTwo });
 });
