@@ -3,6 +3,15 @@
     <head>
         <title>Backbone example</title>
         <link rel="stylesheet" type="text/css" href="../../libs/css/bootstrap.min.css">
+        <style type="text/css">
+            .bar {
+                background-color: #428bca;
+                text-align: right;
+                padding: 3px;
+                margin: 1px;
+                color: white;
+            }
+        </style>
     </head>
     <body>
         <div class="container">
@@ -13,6 +22,10 @@
             </div>
             <div class="row">
                 <div id="dashboard_container"></div>
+            </div>
+            <div class="row">
+                <h3>Graphs</h3>
+                <div id="charts"></div>
             </div>
         </div>
 
@@ -26,11 +39,10 @@
             </div>
         </script>
 
-        <script type="text/template" id="graph">
+        <script type="text/template" id="chart_bar">
             <div class="col-xs-12 col-sm-12 col-lg-12">
-                <h3>Graphs</h3>
-                <div id="mainchart">
-                    <div style="width:<%= content %>px"></div>
+                <div class="bar" style="width: <%= content %>0px">
+                    <%= title %> : <%= content %>
                 </div>
             </div>
         </script>

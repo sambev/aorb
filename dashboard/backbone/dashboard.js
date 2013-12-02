@@ -20,10 +20,9 @@ App.Views.WidgetView = Backbone.View.extend({
     template: _.template($('#widget').html()),
 
     initialize: function() {
-        this.el = '#widget' + this.id;
         this.model.bind('change', this.render, this);
-        this.render();
         this.parent_container.append(this.$el);
+        this.render();
     },
 
     render: function() {
@@ -44,13 +43,28 @@ App.Views.WidgetView = Backbone.View.extend({
     }
 });
 
+App.Views.ChartView = Backbone.View.extend({
+    parent_container: $('#charts'),
+    template: _.template($('#chart_bar').html()),
+
+    initialize: function() {
+        this.model.bind('change', this.render, this);
+        this.parent_container.append(this.$el);
+        this.render();
+    },
+
+    render: function() {
+        this.$el.html( this.template(this.model.toJSON()) );
+    },
+})
+
 
 $(function() {
     App.WidgetOne = new App.Models.DashboardModel({
         id: 1,
         title: 'Widget One',
         type: 'overview',
-        content: 58
+        content: 37
     });
 
     App.WidgetTwo = new App.Models.DashboardModel({
@@ -62,4 +76,6 @@ $(function() {
 
     App.ViewOne = new App.Views.WidgetView({ model:App.WidgetOne });
     App.ViewTwo = new App.Views.WidgetView({ model:App.WidgetTwo });
+    App.BarOne = new App.Views.ChartView({ model:App.WidgetOne });
+    App.BarTwo = new App.Views.ChartView({ model:App.WidgetTwo });
 });
